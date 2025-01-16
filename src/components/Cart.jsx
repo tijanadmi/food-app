@@ -33,12 +33,12 @@ export default function Cart() {
       <ul>
         {cartCtx.items.map((item) => (
           <CartItem
-            key={item.id}
+            key={item.mealid}
             name={item.name}
             quantity={item.quantity}
             price={item.price}
             onIncrease={() => cartCtx.addItem(item)}
-            onDecrease={() => cartCtx.removeItem(item.id)}
+            onDecrease={() => cartCtx.removeItem(item.mealid)}
           />
         ))}
       </ul>

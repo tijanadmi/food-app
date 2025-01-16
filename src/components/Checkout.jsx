@@ -25,7 +25,7 @@ export default function Checkout() {
     error,
     sendRequest,
     clearData
-  } = useHttp('http://localhost:3000/orders', requestConfig);
+  } = useHttp('http://localhost:8080/orders', requestConfig);
 
   const cartTotal = cartCtx.items.reduce(
     (totalPrice, item) => totalPrice + item.quantity * item.price,
@@ -45,6 +45,12 @@ export default function Checkout() {
   async function checkoutAction(prevState, fd) {
     
     const customerData = Object.fromEntries(fd.entries()); // { email: test@example.com }
+    console.log(JSON.stringify({
+      order: {
+        items: cartCtx.items,
+        customer: customerData,
+      },
+    }))
 
     await sendRequest(
         JSON.stringify({

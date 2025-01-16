@@ -12,7 +12,7 @@ export default function Meals() {
     data: loadedMeals,
     isLoading,
     error,
-  } = useHttp('http://localhost:3000/meals', requestConfig, []);
+  } = useHttp('http://localhost:8080/meals', requestConfig, []);
 
   if (isLoading) {
     return <p className="center">Fetching meals...</p>;
@@ -26,7 +26,7 @@ export default function Meals() {
   return (
     <ul id="meals">
       {loadedMeals.map((meal) => (
-        <MealItem key={meal.id} meal={meal} />
+        <MealItem key={meal.mealid} meal={meal} />
       ))}
     </ul>
   );
