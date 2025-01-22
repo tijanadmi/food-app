@@ -20,12 +20,13 @@ export default function Checkout() {
   const cartCtx = useContext(CartContext);
   const userProgressCtx = useContext(UserProgressContext);
 
+  const url = `${import.meta.env.VITE_BACKEND_URL}/orders`;
   const {
     data,
     error,
     sendRequest,
     clearData
-  } = useHttp('http://localhost:8080/orders', requestConfig);
+  } = useHttp(url, requestConfig);
 
   const cartTotal = cartCtx.items.reduce(
     (totalPrice, item) => totalPrice + item.quantity * item.price,

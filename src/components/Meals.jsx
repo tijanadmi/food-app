@@ -7,12 +7,16 @@ import Error from './Error.jsx';
 const requestConfig = {};
 
 export default function Meals() {
+  // console.log("Backend URL:", process.env.REACT_APP_BACKEND);
+
+   const url = `${import.meta.env.VITE_BACKEND_URL}/meals`;
+  //const url = `http://192.168.72.147:8080/meals`;
 
   const {
     data: loadedMeals,
     isLoading,
     error,
-  } = useHttp('http://localhost:8080/meals', requestConfig, []);
+  } = useHttp(url, requestConfig, []);
 
   if (isLoading) {
     return <p className="center">Fetching meals...</p>;

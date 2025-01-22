@@ -6,7 +6,7 @@ import { CartContextProvider } from './store/CartContext.jsx';
 import { UserProgressContextProvider } from './store/UserProgressContext.jsx';
 
 function App() {
-
+  console.log("Environment Variables:", process.env);
   return (
     <UserProgressContextProvider>
       <CartContextProvider>
